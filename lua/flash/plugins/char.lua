@@ -83,7 +83,15 @@ function M.mode(motion)
     end
     if not Config.get("char").multi_line then
       local pos = vim.api.nvim_win_get_cursor(0)
-      pattern = ("\\%%%dl"):format(pos[1]) .. pattern
+
+      -- Prevent matching the letter the cursor is already on with f/F motion
+      if motion == "f" then
+        pattern = ("\\%%%dl"):format(pos[1]) .. ("\\%%>%dc"):format(pos[2] + 1) .. pattern
+      elseif motion == "F" then
+        pattern = ("\\%%%dl"):format(pos[1]) .. ("\\%%<%dc"):format(pos[2] + 1) .. pattern
+      else
+        pattern = ("\\%%%dl"):format(pos[1]) .. pattern
+      end
     end
 
     return pattern

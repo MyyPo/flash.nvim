@@ -103,17 +103,19 @@ function M.matcher(win, state)
   local prev_node = {}
   for i = 1, #nodes do
     if i > 1 then
-      if state.opts.jump.pos == "start" and
-        prev_node.win == nodes[i].win and
-        prev_node.pos[1] == nodes[i].pos[1] and
-        prev_node.pos[2] == nodes[i].pos[2] then
-
+      if
+        state.opts.jump.pos == "start"
+        and prev_node.win == nodes[i].win
+        and prev_node.pos[1] == nodes[i].pos[1]
+        and prev_node.pos[2] == nodes[i].pos[2]
+      then
         goto continue
-      elseif state.opts.jump.pos == "end" and
-        prev_node.win == nodes[i].win and
-        prev_node.end_pos[1] == nodes[i].end_pos[1] and
-        prev_node.end_pos[2] == nodes[i].end_pos[2] then
-
+      elseif
+        state.opts.jump.pos == "end"
+        and prev_node.win == nodes[i].win
+        and prev_node.end_pos[1] == nodes[i].end_pos[1]
+        and prev_node.end_pos[2] == nodes[i].end_pos[2]
+      then
         goto continue
       end
     end

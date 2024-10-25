@@ -78,10 +78,7 @@ describe("search", function()
   it("finds matcher", function()
     assert.same({ win = 1000, pos = { 1, 7 }, end_pos = { 1, 9 } }, matcher:find())
     assert.same({ win = 1000, pos = { 3, 4 }, end_pos = { 3, 6 } }, matcher:find({ count = 2 }))
-    assert.same(
-      { win = 1000, pos = { 3, 4 }, end_pos = { 3, 6 } },
-      matcher:find({ forward = false })
-    )
+    assert.same({ win = 1000, pos = { 3, 4 }, end_pos = { 3, 6 } }, matcher:find({ forward = false }))
     assert.same(
       { win = 1000, pos = { 1, 7 }, end_pos = { 1, 9 } },
       matcher:find({

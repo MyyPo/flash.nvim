@@ -43,9 +43,6 @@ describe("search", function()
     }, matches)
     assert.same({ win = 1000, pos = { 2, 0 }, end_pos = { 2, 3 } }, search:find())
     assert.same({ win = 1000, pos = { 3, 0 }, end_pos = { 3, 3 } }, search:find({ count = 2 }))
-    assert.same(
-      { win = 1000, pos = { 3, 0 }, end_pos = { 3, 3 } },
-      search:find({ forward = false })
-    )
+    assert.same({ win = 1000, pos = { 3, 0 }, end_pos = { 3, 3 } }, search:find({ forward = false }))
   end)
 end)
